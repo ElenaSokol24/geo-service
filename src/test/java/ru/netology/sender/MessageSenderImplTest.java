@@ -1,5 +1,6 @@
 package ru.netology.sender;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import ru.netology.entity.Country;
@@ -28,7 +29,7 @@ class MessageSenderImplTest {
         headers.put(MessageSenderImpl.IP_ADDRESS_HEADER, "172.0.32.11");
         String current = messageSender.send(headers);
         String expected = "Добро пожаловать";
-
+        Assertions.assertEquals(expected, current);
     }
 
     @Test
@@ -44,6 +45,6 @@ class MessageSenderImplTest {
         headers.put(MessageSenderImpl.IP_ADDRESS_HEADER, "96.44.183.149");
         String current = messageSender.send(headers);
         String expected = "Welcome";
-
+        Assertions.assertEquals(expected, current);
     }
 }
